@@ -1,0 +1,1 @@
+select min(st.city),length(st.city) as citylength from (select max(length(city)) as max ,min(length(city)) as min from station) details join station st on (length(st.city) = details.max or length(st.city) = details.min) group by length(st.city);
